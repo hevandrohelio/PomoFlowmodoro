@@ -24,12 +24,15 @@ h1{
     font-size: 64px;
     text-align: center;
 }
-.start{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#cronometer{
+    margin: 20px;
+    font-size: 64px;
+    text-align: center;
 }
-.start_button{
+.change_button{
+    margin: 3px;
+}
+button{
     width: 100px;
     height: 50px;
 }

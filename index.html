@@ -11,15 +11,35 @@
         <a href="#pomodoro">Pomodoro</a>
         <a href="#">Flowmodoro</a>
     </nav>
-    <main id="pomodoro">
-        <h1>Pomodoro</h1>
-        <div id="buttons" class="flex-box">
-            <button class="content-box" type="button">Focus</button>
-            <button class="content-box" type="button">Break</button>
-            <button class="content-box" type="button">Long break</button>
-        </div>
-        <div id="cronos">00:00</div>
-        <div class="start"><button class="start_button" type="button">Start</button></div>
+    <main>
+        <section id="pomodoro">
+            <h1>Pomodoro</h1>
+            <div id="buttons" class="flex-box">
+                <button class="content-box" type="button">Focus</button>
+                <button class="content-box" type="button">Break</button>
+                <button class="content-box" type="button">Long break</button>
+            </div>
+            <div id="cronos">00:00</div>
+            <div id="buttons" class="flex-box">
+                <div class="change_button"><button class="start_button" type="button">Start</button></div>
+                <div class="change_button"><button class="pause_button" type="button">Pause</button></div>
+                <div class="change_button"><button class="restart_button" type="button">Reset</button></div>
+            </div>
+        </section>
+        <section id="flowmodoro">
+            <h1>Flowmodoro</h1>
+            <div id="buttons" class="flex-box">
+                <button class="content-box" type="button">Focus</button>
+                <button class="content-box" type="button">Break</button>
+                <button class="content-box" type="button">Long break</button>
+            </div>
+            <div id="cronometer">00:00</div>
+            <div id="buttons" class="flex-box">
+                <div class="change_button"><button class="start_button" type="button">Start</button></div>
+                <div class="change_button"><button class="pause_button" type="button">Pause</button></div>
+                <div class="change_button"><button class="restart_button" type="button">Reset</button></div>
+            </div>
+        </section>
     </main>
     <script src="script.js"></script>
 </body>
