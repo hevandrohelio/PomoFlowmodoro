@@ -30,17 +30,26 @@
             <h1>Flowmodoro</h1>
             <div id="buttons" class="flex-box">
                 <button class="content-box" type="button" id="flow-focus" onclick="resetFlow()">Focus</button>
-                <button class="content-box" type="button" id="flow-break" onclick="breakFlow('normal')">Break</button>
-                <button class="content-box" type="button" id="flow-long-break" onclick="breakFlow('long')">Long break</button>
+                <button class="content-box" type="button" id="flow-break" onclick="breakFlow()">Break</button>
             </div>
             <div id="cronom">0:00:00</div>
-            <div id="buttons" class="flex-box">
-                <div class="change_button"><button class="start_button" type="button" id="flow-start" onclick="startFlow()">Start</button></div>
-                <div class="change_button"><button class="pause_button" type="button" id="flow-pause" onclick="pauseFlow()">Pause</button></div>
-                <div class="change_button"><button class="restart_button" type="button" id="flow-reset" onclick="resetFlow()">Reset</button></div>
+            <div id="flow-start-buttons">
+                <div id="buttons" class="flex-box">
+                    <div class="change_button"><button class="start_button" type="button" id="flow-start" onclick="startFlow()">Start</button></div>
+                    <div class="change_button"><button class="pause_button" type="button" id="flow-pause" onclick="pauseFlow()">Pause</button></div>
+                    <div class="change_button"><button class="restart_button" type="button" id="flow-reset" onclick="resetFlow()">Reset</button></div>
+                </div>
+            </div>
+            <div id="flow-break-buttons" style="display: none;">
+                <div id="buttons" class="flex-box">
+                    <div class="change_button"><button class="start_button" type="button" id="break-start" onclick="startBreak()">Start break</button></div>
+                    <div class="change_button"><button class="pause_button" type="button" id="break-pause" onclick="pauseBreak()">Pause break</button></div>
+                    <div class="change_button"><button class="restart_button" type="button" id="break-reset" onclick="resetBreak()">Reset break</button></div>
+                </div>
             </div>
         </section>
     </main>
-    <script src="script.js"></script>
+    <script src="flow.js"></script>
+    <script src="pomo.js"></script>
 </body>
 </html>
