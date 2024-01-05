@@ -8,8 +8,8 @@
 </head>
 <body>
     <nav>
-        <a href="#pomodoro">Pomodoro</a>
-        <a href="#">Flowmodoro</a>
+        <button onclick="changeClock('pomodoro','flowmodoro')">Pomodoro</button>
+        <button onclick="changeClock('flowmodoro','pomodoro')">Flowmodoro</button>
     </nav>
     <main>
         <section id="pomodoro">
@@ -19,25 +19,25 @@
                 <button class="content-box" type="button" id="pomo-break">Break</button>
                 <button class="content-box" type="button" id="pomo-long-break">Long break</button>
             </div>
-            <div id="cronos">00:00</div>
+            <div id="cronos">25:00</div>
             <div id="buttons" class="flex-box">
                 <div class="change_button"><button class="start_button" type="button" id="pomo-start">Start</button></div>
                 <div class="change_button"><button class="pause_button" type="button" id="pomo-pause">Pause</button></div>
                 <div class="change_button"><button class="restart_button" type="button" id="pomo-break">Reset</button></div>
             </div>
         </section>
-        <section id="flowmodoro">
+        <section id="flowmodoro" style="display: none;">
             <h1>Flowmodoro</h1>
             <div id="buttons" class="flex-box">
-                <button class="content-box" type="button" id="flow-focus">Focus</button>
-                <button class="content-box" type="button" id="flow-break">Break</button>
-                <button class="content-box" type="button" id="flow-long-break">Long break</button>
+                <button class="content-box" type="button" id="flow-focus" onclick="resetFlow()">Focus</button>
+                <button class="content-box" type="button" id="flow-break" onclick="breakFlow('normal')">Break</button>
+                <button class="content-box" type="button" id="flow-long-break" onclick="breakFlow('long')">Long break</button>
             </div>
-            <div id="cronometer">00:00</div>
+            <div id="cronom">0:00:00</div>
             <div id="buttons" class="flex-box">
-                <div class="change_button"><button class="start_button" type="button" id="flow-start">Start</button></div>
-                <div class="change_button"><button class="pause_button" type="button" id="flow-pause">Pause</button></div>
-                <div class="change_button"><button class="restart_button" type="button" id="flow-reset">Reset</button></div>
+                <div class="change_button"><button class="start_button" type="button" id="flow-start" onclick="startFlow()">Start</button></div>
+                <div class="change_button"><button class="pause_button" type="button" id="flow-pause" onclick="pauseFlow()">Pause</button></div>
+                <div class="change_button"><button class="restart_button" type="button" id="flow-reset" onclick="resetFlow()">Reset</button></div>
             </div>
         </section>
     </main>
