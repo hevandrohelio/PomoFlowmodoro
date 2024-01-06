@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PomoFlowmodoro</title>
+    <title>PomoFlow</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,17 +12,18 @@
         <button onclick="changeClock('flowmodoro','pomodoro')">Flowmodoro</button>
     </nav>
     <main>
+        <!-- Pomodoro -->
         <section id="pomodoro">
             <h1>Pomodoro</h1>
             <div id="buttons" class="flex-box">
-                <button class="content-box" type="button" id="pomo-focus">Focus</button>
+                <button class="content-box" type="button" id="pomo-focus" onclick="pomoFocus()">Focus</button>
                 <button class="content-box" type="button" id="pomo-break">Break</button>
                 <button class="content-box" type="button" id="pomo-long-break">Long break</button>
             </div>
             <div id="cronos">25:00</div>
             <div id="buttons" class="flex-box">
                 <div class="change_button"><button class="start_button" type="button" id="pomo-start">Start</button></div>
-                <div class="change_button"><button class="pause_button" type="button" id="pomo-pause">Pause</button></div>
+                <div class="change_button"><button class="pause_button" type="button" id="pomo-pause" style="display: none;">Pause</button></div>
                 <div class="change_button"><button class="restart_button" type="button" id="pomo-break">Reset</button></div>
             </div>
         </section>
@@ -36,14 +37,14 @@
             <div id="flow-start-buttons">
                 <div id="buttons" class="flex-box">
                     <div class="change_button"><button class="start_button" type="button" id="flow-start" onclick="startFlow()">Start</button></div>
-                    <div class="change_button"><button class="pause_button" type="button" id="flow-pause" onclick="pauseFlow()">Pause</button></div>
+                    <div class="change_button"><button class="pause_button" type="button" id="flow-pause" onclick="pauseFlow()" style="display: none;">Pause</button></div>
                     <div class="change_button"><button class="restart_button" type="button" id="flow-reset" onclick="resetFlow()">Reset</button></div>
                 </div>
             </div>
             <div id="flow-break-buttons" style="display: none;">
                 <div id="buttons" class="flex-box">
                     <div class="change_button"><button class="start_button" type="button" id="break-start" onclick="startBreak()">Start break</button></div>
-                    <div class="change_button"><button class="pause_button" type="button" id="break-pause" onclick="pauseBreak()">Pause break</button></div>
+                    <div class="change_button"><button class="pause_button" type="button" id="break-pause" onclick="pauseBreak()" style="display: none;">Pause break</button></div>
                     <div class="change_button"><button class="restart_button" type="button" id="break-reset" onclick="resetBreak()">Reset break</button></div>
                 </div>
             </div>

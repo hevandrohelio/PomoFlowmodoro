@@ -17,10 +17,14 @@ let break_cron;
 
 function startFlow() {
     cron = setInterval(() => { timer(); }, time);
+    document.getElementById('flow-start').style.display = 'none';
+    document.getElementById('flow-pause').style.display = 'block';
 }
 
 function pauseFlow() {
     clearInterval(cron);
+    document.getElementById('flow-start').style.display = 'block';
+    document.getElementById('flow-pause').style.display = 'none';
 }
 
 function resetFlow() {
@@ -75,10 +79,14 @@ function temp() {
 
 function startBreak() {
     break_cron = setInterval(() => { temp(); }, time);
+    document.getElementById('break-start').style.display = 'none';
+    document.getElementById('break-pause').style.display = 'block';
 
 }
 function pauseBreak() {
     clearInterval(break_cron);
+    document.getElementById('break-start').style.display = 'block';
+    document.getElementById('break-pause').style.display = 'none';
 }
 function resetBreak() {
     breakFlow()
