@@ -16,24 +16,38 @@
         <section id="pomodoro">
             <h1>Pomodoro</h1>
             <div id="buttons" class="flex-box">
-                <button class="content-box" type="button" id="pomo-focus" onclick="pomoFocus()">Focus</button>
-                <button class="content-box" type="button" id="pomo-break">Break</button>
-                <button class="content-box" type="button" id="pomo-long-break">Long break</button>
+                <button class="content-box" type="button" id="pomo-focus" onclick="resetPomo()">Focus</button>
+                <button class="content-box" type="button" id="pomo-break" onclick="pomoBreak()">Break</button>
+                <button class="content-box" type="button" id="pomo-long-break" onclick="pomoLongBreak()">Long break</button>
             </div>
             <div id="cronos">25:00</div>
-            <div id="buttons" class="flex-box">
-                <div class="change_button"><button class="start_button" type="button" id="pomo-start">Start</button></div>
-                <div class="change_button"><button class="pause_button" type="button" id="pomo-pause" style="display: none;">Pause</button></div>
-                <div class="change_button"><button class="restart_button" type="button" id="pomo-break">Reset</button></div>
+            <div id="pomo-focus-buttons">
+                <div id="buttons" class="flex-box">
+                    <div class="change_button"><button class="start_button" type="button" id="pomo-start" onclick="startPomo()">Start</button></div>
+                    <div class="change_button"><button class="pause_button" type="button" id="pomo-pause" style="display: none;" onclick="pausePomo()">Pause</button></div>
+                    <div class="change_button"><button class="restart_button" type="button" id="pomo-reset" onclick="resetPomo()">Reset</button></div>
+                </div>
+            </div>
+            <div id="pomo-break-buttons" style="display: none;">
+                <div id="buttons" class="flex-box">
+                    <div class="change_button"><button class="start_button" type="button" id="pomo-start-break" onclick="startPomoBreak()">Start Break</button></div>
+                    <div class="change_button"><button class="pause_button" type="button" id="pomo-pause-break" style="display: none;" onclick="pausePomoBreak()">Pause Break</button></div>
+                    <div class="change_button"><button class="restart_button" type="button" id="pomo-reset-break" onclick="resetPomoBreak()">Reset Break</button></div>
+                    <div class="change_button"><button class="restart_button" type="button" id="pomo-reset-long-break" onclick="resetPomoLongBreak()">Reset Long Break</button></div>
+
+                </div>
             </div>
         </section>
+        <!-- Flowmodoro -->
         <section id="flowmodoro" style="display: none;">
             <h1>Flowmodoro</h1>
+            <!-- Botões de Foco e Descanso -->
             <div id="buttons" class="flex-box">
                 <button class="content-box" type="button" id="flow-focus" onclick="resetFlow()">Focus</button>
                 <button class="content-box" type="button" id="flow-break" onclick="breakFlow()">Break</button>
             </div>
             <div id="cronom">0:00:00</div>
+            <!-- Controles do cronômetro -->
             <div id="flow-start-buttons">
                 <div id="buttons" class="flex-box">
                     <div class="change_button"><button class="start_button" type="button" id="flow-start" onclick="startFlow()">Start</button></div>
@@ -41,6 +55,7 @@
                     <div class="change_button"><button class="restart_button" type="button" id="flow-reset" onclick="resetFlow()">Reset</button></div>
                 </div>
             </div>
+            <!-- Botões de controle do descanso -->
             <div id="flow-break-buttons" style="display: none;">
                 <div id="buttons" class="flex-box">
                     <div class="change_button"><button class="start_button" type="button" id="break-start" onclick="startBreak()">Start break</button></div>
@@ -51,6 +66,5 @@
         </section>
     </main>
     <script src="flow.js"></script>
-    <script src="pomo.js"></script>
 </body>
 </html>
