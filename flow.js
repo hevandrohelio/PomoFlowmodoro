@@ -34,7 +34,7 @@
 
     function pomoTimer() {
         pomo_second--;
-        if(document.getElementById('pomo-break-buttons').style.display == 'none'){
+        if (document.getElementById('pomo-break-buttons').style.display == 'none') {
             if (pomo_minute <= 0 && pomo_second == 0) {
                 clearInterval(pomo_cron);
                 window.alert('Hora de fazer uma pausa ￣ω￣');
@@ -61,7 +61,7 @@
         document.getElementById('pomo-start-break').style.display = 'block';
         document.getElementById("pomo-reset-long-break").style.display = 'none';
         document.getElementById("pomo-reset-break").style.display = 'block';
-        
+
         pomo_minute = 5;
         pomo_second = 0;
         document.getElementById('cronos').innerText = `${pomo_minute < 10 ? '0' + pomo_minute : pomo_minute}:${pomo_second < 10 ? '0' + pomo_second : pomo_second}`
@@ -148,6 +148,8 @@
     }
 
     function resetFlow() {
+        document.getElementById('flow-start').style.display = 'block';
+        document.getElementById('flow-pause').style.display = 'none';
         document.getElementById('flow-break-buttons').style.display = 'none';
         document.getElementById('flow-start-buttons').style.display = 'block';
 
@@ -191,7 +193,9 @@
             hour = 0;
             minute = 0;
             second = 0;
-            break_time = 0.1;
+            break_time = 0;
+            document.getElementById('break-start').style.display = 'block';
+            document.getElementById('break-pause').style.display = 'none';
         }
         let format = `${hour}:${minute < 10 ? '0' + break_time : break_time}:${second < 10 ? '0' + second : second}`;
         document.getElementById('cronom').innerText = format;
