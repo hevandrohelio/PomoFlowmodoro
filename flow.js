@@ -1,25 +1,30 @@
 //Pomodoro
+let isPomoStarted = false;
+let isFlowStarted = false;
 {
     let pomo_minute = 25;
     let pomo_second = 0;
     let pomo_format;
 
-    let pomo_time = 1000;
+    const pomo_time = 1000;
 
     let pomo_cron;
 
     function startPomo() {
+        isPomoStarted = true;
         pomo_cron = setInterval(() => { pomoTimer(); }, pomo_time);
         document.getElementById('pomo-start').style.display = 'none';
         document.getElementById('pomo-pause').style.display = 'block';
     }
     function pausePomo() {
+        isPomoStarted = false;
         clearInterval(pomo_cron);
         document.getElementById('pomo-start').style.display = 'block';
         document.getElementById('pomo-pause').style.display = 'none';
     }
 
     function resetPomo() {
+        isPomoStarted = false;
         clearInterval(pomo_cron);
         document.getElementById('pomo-break-buttons').style.display = 'none';
         document.getElementById('pomo-focus-buttons').style.display = 'block';
@@ -118,36 +123,34 @@
 
 //Flowmodoro
 {
-    function changeClock(idb, idn) {
-        document.getElementById(idb).style.display = 'block';
-        document.getElementById(idn).style.display = 'none';
-    }
-
     let total_minutes = 0;
     let break_time = 0;
     let hour = 0;
     let minute = 0;
     let second = 0;
 
-    let time = 1000;
+    const time = 1000;
 
     let cron;
     let break_cron;
 
 
     function startFlow() {
+        isFlowStarted = true;
         cron = setInterval(() => { timer(); }, time);
         document.getElementById('flow-start').style.display = 'none';
         document.getElementById('flow-pause').style.display = 'block';
     }
 
     function pauseFlow() {
+        isFlowStarted = false;
         clearInterval(cron);
         document.getElementById('flow-start').style.display = 'block';
         document.getElementById('flow-pause').style.display = 'none';
     }
 
     function resetFlow() {
+        isFlowStarted = false;
         document.getElementById('flow-start').style.display = 'block';
         document.getElementById('flow-pause').style.display = 'none';
         document.getElementById('flow-break-buttons').style.display = 'none';
@@ -226,5 +229,48 @@
         second = 0;
         break_time = Math.round((total_minutes * 5) / 25);
         document.getElementById('cronom').innerText = break_time + ' minutos de descanço';
+    }
+}
+
+function changeColor(mode) {
+    let body = document.getElementById("body");
+    var text = document.querySelectorAll('.text');
+    if (mode == 'dark') {
+        body.style.backgroundColor = "#1C1C1C";
+        for (let item of text) {
+            item.style.color = '#ffffff';
+        }
+        document.getElementById('light-mode_btn').style.display = "block";
+        document.getElementById('dark-mode_btn').style.display = "none";
+    }
+    if (mode == 'light') {
+        body.style.backgroundColor = "#ffffff";
+        for (let item of text) {
+            item.style.color = '#000000';
+        }
+        document.getElementById('light-mode_btn').style.display = "none";
+        document.getElementById('dark-mode_btn').style.display = "block";
+    }
+
+}
+
+function changeClock(idb, idn) {
+    if (isPomoStarted == true || isFlowStarted == true) {
+        if (confirm("Do you want to stop the current timer?")) {
+            if (isFlowStarted == true) {
+                pauseFlow();
+                document.getElementById(idb).style.display = 'block';
+                document.getElementById(idn).style.display = 'none';
+            }
+            else if (isPomoStarted == true) {
+                pausePomo()
+                document.getElementById(idb).style.display = 'block';
+                document.getElementById(idn).style.display = 'none';
+            }
+        }
+    }
+    else {
+        document.getElementById(idb).style.display = 'block';
+        document.getElementById(idn).style.display = 'none';
     }
 }

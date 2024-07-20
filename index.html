@@ -6,7 +6,7 @@
     <title>PomoFlow</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="body">
     <nav>
         <button onclick="changeClock('pomodoro','flowmodoro')">Pomodoro</button>
         <button onclick="changeClock('flowmodoro','pomodoro')">Flowmodoro</button>
@@ -14,13 +14,13 @@
     <main>
         <!-- Pomodoro -->
         <section id="pomodoro">
-            <h1>Pomodoro</h1>
+            <h1 class="text">Pomodoro</h1>
             <div id="buttons" class="flex-box">
                 <button class="content-box" type="button" id="pomo-focus" onclick="resetPomo()">Focus</button>
                 <button class="content-box" type="button" id="pomo-break" onclick="pomoBreak()">Break</button>
                 <button class="content-box" type="button" id="pomo-long-break" onclick="pomoLongBreak()">Long break</button>
             </div>
-            <div id="cronos">25:00</div>
+            <div id="cronos" class="text">25:00</div>
             <div id="pomo-focus-buttons">
                 <div id="buttons" class="flex-box">
                     <div class="change_button"><button class="start_button" type="button" id="pomo-start" onclick="startPomo()">Start</button></div>
@@ -40,13 +40,13 @@
         </section>
         <!-- Flowmodoro -->
         <section id="flowmodoro" style="display: none;">
-            <h1>Flowmodoro</h1>
+            <h1 class="text">Flowmodoro</h1>
             <!-- Botões de Foco e Descanso -->
             <div id="buttons" class="flex-box">
                 <button class="content-box" type="button" id="flow-focus" onclick="resetFlow()">Focus</button>
                 <button class="content-box" type="button" id="flow-break" onclick="breakFlow()">Break</button>
             </div>
-            <div id="cronom">0:00:00</div>
+            <div id="cronom" class="text">0:00:00</div>
             <!-- Controles do cronômetro -->
             <div id="flow-start-buttons">
                 <div id="buttons" class="flex-box">
@@ -65,7 +65,11 @@
             </div>
         </section>
     </main>
-    <footer><p style="text-align: center; font-family: Arial, Helvetica, sans-serif;">Made by <a href="https://github.com/hevandrohelio" style="text-decoration: none;">Hevandro</a></p></footer>
+    <div style="text-align: center; margin: 10px;">
+        <a href="javascript:void(0)" onclick="changeColor('light')" style="display: none; color: whitesmoke;" id="light-mode_btn">Light Mode</a>
+        <a href="javascript:void(0)" onclick="changeColor('dark')" id="dark-mode_btn" style="color: black;">Dark Mode</a>
+    </div>
+    <footer><p style="text-align: center; font-family: Arial, Helvetica, sans-serif;" class="text">Made by <a href="https://github.com/hevandrohelio" style="text-decoration: none;" target="_blank">Hevandro</a></p></footer>
     <script src="flow.js"></script>
 </body>
 </html>
