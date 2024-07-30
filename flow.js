@@ -2,7 +2,7 @@
 let isPomoStarted = false;
 let isFlowStarted = false;
 {
-    let pomo_minute = 25;
+    let pomo_minute = document.getElementById("pomo_time").value;
     let pomo_second = 0;
     let pomo_format;
 
@@ -31,7 +31,7 @@ let isFlowStarted = false;
         document.getElementById('pomo-pause').style.display = 'none';
         document.getElementById('pomo-start').style.display = 'block';
         pomo_hour = 0;
-        pomo_minute = 25;
+        pomo_minute = document.getElementById("pomo_time").value;
         pomo_second = 0;
         pomo_format = `${pomo_minute < 10 ? '0' + pomo_minute : pomo_minute}:${pomo_second < 10 ? '0' + pomo_second : pomo_second}`
         document.getElementById('cronos').innerText = pomo_format;
@@ -42,13 +42,13 @@ let isFlowStarted = false;
         if (document.getElementById('pomo-break-buttons').style.display == 'none') {
             if (pomo_minute <= 0 && pomo_second == 0) {
                 clearInterval(pomo_cron);
-                window.alert('Hora de fazer uma pausa ￣ω￣');
+                playSound();
             }
         }
         if (document.getElementById('pomo-break-buttons').style.display == 'block') {
             if (pomo_minute <= 0 && pomo_second == 0) {
                 clearInterval(pomo_cron);
-                window.alert('Hora de voltar ao trabalho ~(￣▽￣)~');
+                playSound();
             }
         }
         if (pomo_second < 0) {
@@ -67,7 +67,7 @@ let isFlowStarted = false;
         document.getElementById("pomo-reset-long-break").style.display = 'none';
         document.getElementById("pomo-reset-break").style.display = 'block';
 
-        pomo_minute = 5;
+        pomo_minute = document.getElementById("pomo_break").value;
         pomo_second = 0;
         document.getElementById('cronos').innerText = `${pomo_minute < 10 ? '0' + pomo_minute : pomo_minute}:${pomo_second < 10 ? '0' + pomo_second : pomo_second}`
         clearInterval(pomo_cron)
@@ -80,7 +80,7 @@ let isFlowStarted = false;
         document.getElementById("pomo-reset-long-break").style.display = 'block';
         document.getElementById("pomo-reset-break").style.display = 'none';
 
-        pomo_minute = 15;
+        pomo_minute = document.getElementById("pomo_lbreak").value;
         pomo_second = 0;
         document.getElementById('cronos').innerText = `${pomo_minute < 10 ? '0' + pomo_minute : pomo_minute}:${pomo_second < 10 ? '0' + pomo_second : pomo_second}`
         clearInterval(pomo_cron)
@@ -101,7 +101,7 @@ let isFlowStarted = false;
         document.getElementById('pomo-start-break').style.display = 'block';
 
         pomo_hour = 0;
-        pomo_minute = 5;
+        pomo_minute = document.getElementById("pomo_break").value;
         pomo_second = 0;
         pomo_format = `${pomo_minute < 10 ? '0' + pomo_minute : pomo_minute}:${pomo_second < 10 ? '0' + pomo_second : pomo_second}`
         document.getElementById('cronos').innerText = pomo_format;
@@ -112,7 +112,7 @@ let isFlowStarted = false;
         document.getElementById('pomo-start-break').style.display = 'block';
 
         pomo_hour = 0;
-        pomo_minute = 15;
+        pomo_minute = document.getElementById("pomo_lbreak").value;
         pomo_second = 0;
         pomo_format = `${pomo_minute < 10 ? '0' + pomo_minute : pomo_minute}:${pomo_second < 10 ? '0' + pomo_second : pomo_second}`
         document.getElementById('cronos').innerText = pomo_format;
@@ -192,7 +192,7 @@ let isFlowStarted = false;
         }
         if (break_time < 0) {
             clearInterval(break_cron);
-            window.alert('Tempo de descanso acabou o(*￣▽￣*)o');
+            playSound();
             hour = 0;
             minute = 0;
             second = 0;
@@ -273,4 +273,44 @@ function changeClock(idb, idn) {
         document.getElementById(idb).style.display = 'block';
         document.getElementById(idn).style.display = 'none';
     }
+}
+
+function settings(display) {
+    pauseBreak();
+    pauseFlow();
+    pausePomo();
+    pausePomoBreak();
+    if (display=='show') {
+        document.getElementById("settings").style.display = 'block';
+        document.getElementById("showBtn").style.display = 'none';
+        document.getElementById("hideBtn").style.display = 'block';
+    }
+    if(display=='hide'){
+        document.getElementById("settings").style.display = 'none';
+        document.getElementById("hideBtn").style.display = 'none';
+        document.getElementById("showBtn").style.display = 'block';
+    }
+    
+}
+
+function playSound(){
+    let sound = document.getElementById('sounds');
+    let selected_sound = sound.options[sound.selectedIndex].text;
+    let audio;
+    if (selected_sound == 'IPhone') {
+        audio = new Audio('data/audio/iphone.mp3');
+    }
+    if (selected_sound == 'Nuclear'){
+        audio = new Audio('data/audio/nuclear.m4a');
+    }
+    if (selected_sound == 'Nossa') {
+        audio = new Audio('data/audio/nossa.opus');
+    }
+    if (selected_sound == 'THE BEST') {
+        audio = new Audio('data/audio/best.opus');
+    }
+    audio.play();
+}
+function reset() {
+    resetPomo();
 }

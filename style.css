@@ -1,6 +1,10 @@
 @charset "UTF-8";
 nav{
-    text-align: center;
+    margin: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 h1{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -35,4 +39,35 @@ h1{
 button{
     width: 100px;
     height: 50px;
+}
+.box{
+    background-color: #d7d7d7;
+    padding: 10px;
+    width: 400px;
+    height: 500px;
+    border: 3px solid gray;
+    border-radius: 10%;
+}
+.time_settings{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.time_box{
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+input[type='number']{
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
+}
+.play-btn{
+    width: fit-content;
+    height: fit-content;
+}
+#settings{
+    z-index: 2;
 }

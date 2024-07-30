@@ -10,6 +10,8 @@
     <nav>
         <button onclick="changeClock('pomodoro','flowmodoro')">Pomodoro</button>
         <button onclick="changeClock('flowmodoro','pomodoro')">Flowmodoro</button>
+        <button onclick="settings('show')" id="showBtn">Settings</button>
+        <button onclick="settings('hide')" style="display: none;" id="hideBtn">Settings</button>
     </nav>
     <main>
         <!-- Pomodoro -->
@@ -65,6 +67,40 @@
             </div>
         </section>
     </main>
+    <!--Settings-->
+    <section class="flex-box">
+        <div class="box" id="settings" style="position: absolute; display: none; top: 100px;">
+            <h2 style="text-align: center;">Settings</h2>
+            <h3 style="text-align: center;">Pomodoro Time Settings</h3>
+            <div class="time_settings">
+                <div class="time_box">
+                    <label>Focus</label>
+                    <input type="number" name="pomo_time" id="pomo_time" value="25" min="1" max="99">
+                </div>
+                <div class="time_box">
+                    <label>Break</label>
+                    <input type="number" name="break_time" id="pomo_break" value="5" min="1" max="99">
+                </div>
+                <div class="time_box" style="margin-right: 0px;">
+                    <label>L Break</label>
+                    <input type="number" name="long-Break_time" id="pomo_lbreak" value="10" min="1" max="99">
+                </div>
+            </div>
+            <h3 style="text-align: center;">Alarm</h3>
+                <div class="alarm_settings">
+                    <label>Alarm sound</label>
+                    <select name="sounds" id="sounds">
+                        <option value="iphone">IPhone</option>
+                        <option value="nuclear">Nuclear</option>
+                        <option value="nossa">Nossa</option>
+                        <option value="best">THE BEST</option>
+                    </select>
+                    <button class="play-btn" onclick="playSound()">Play</button>
+                </div>
+                <button type="button" onclick="reset()">Save</button>
+        </div>
+        
+    </section>
     <div style="text-align: center; margin: 10px;">
         <a href="javascript:void(0)" onclick="changeColor('light')" style="display: none; color: whitesmoke;" id="light-mode_btn">Light Mode</a>
         <a href="javascript:void(0)" onclick="changeColor('dark')" id="dark-mode_btn" style="color: black;">Dark Mode</a>
