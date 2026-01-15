@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PomoFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <nav>
+        <button onclick="changeClock('pomodoro','flowmodoro')">Pomodoro</button>
+        <button onclick="changeClock('flowmodoro','pomodoro')">Flowmodoro</button>
+        <button onclick="settings('show')" id="showBtn">Settings</button>
+        <button onclick="settings('hide')" style="display: none;" id="hideBtn">Settings</button>
+    </nav>
+    <main>
+        <!-- Pomodoro -->
+        <section id="pomodoro">
+            <h1 class="text">Pomodoro</h1>
+            <div id="buttons" class="flex-box">
+                <button class="content-box" type="button" id="pomo-focus" onclick="resetPomo()">Focus</button>
+                <button class="content-box" type="button" id="pomo-break" onclick="pomoBreak()">Break</button>
+                <button class="content-box" type="button" id="pomo-long-break" onclick="pomoLongBreak()">Long break</button>
+            </div>
+            <div id="cronos" class="text">25:00</div>
+            <div id="pomo-focus-buttons">
+                <div id="buttons" class="flex-box">
+                    <div class="change_button"><button class="start_button" type="button" id="pomo-start" onclick="startPomo()">Start</button></div>
+                    <div class="change_button"><button class="pause_button" type="button" id="pomo-pause" style="display: none;" onclick="pausePomo()">Pause</button></div>
+                    <div class="change_button"><button class="restart_button" type="button" id="pomo-reset" onclick="resetPomo()">Reset</button></div>
+                </div>
+            </div>
+            <div id="pomo-break-buttons" style="display: none;">
+                <div id="buttons" class="flex-box">
+                    <div class="change_button"><button class="start_button" type="button" id="pomo-start-break" onclick="startPomoBreak()">Start Break</button></div>
+                    <div class="change_button"><button class="pause_button" type="button" id="pomo-pause-break" style="display: none;" onclick="pausePomoBreak()">Pause Break</button></div>
+                    <div class="change_button"><button class="restart_button" type="button" id="pomo-reset-break" onclick="resetPomoBreak()">Reset Break</button></div>
+                    <div class="change_button"><button class="restart_button" type="button" id="pomo-reset-long-break" onclick="resetPomoLongBreak()">Reset Long Break</button></div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Flowmodoro -->
+        <section id="flowmodoro" style="display: none;">
+            <h1 class="text">Flowmodoro</h1>
+            <!-- Botões de Foco e Descanso -->
+            <div id="buttons" class="flex-box">
+                <button class="content-box" type="button" id="flow-focus" onclick="resetFlow()">Focus</button>
+                <button class="content-box" type="button" id="flow-break" onclick="breakFlow()">Break</button>
+            </div>
+            <div id="cronom" class="text">0:00:00</div>
+            <!-- Controles do cronômetro -->
+            <div id="flow-start-buttons">
+                <div id="buttons" class="flex-box">
+                    <div class="change_button"><button class="start_button" type="button" id="flow-start" onclick="startFlow()">Start</button></div>
+                    <div class="change_button"><button class="pause_button" type="button" id="flow-pause" onclick="pauseFlow()" style="display: none;">Pause</button></div>
+                    <div class="change_button"><button class="restart_button" type="button" id="flow-reset" onclick="resetFlow()">Reset</button></div>
+                </div>
+            </div>
+            <!-- Botões de controle do descanso -->
+            <div id="flow-break-buttons" style="display: none;">
+                <div id="buttons" class="flex-box">
+                    <div class="change_button"><button class="start_button" type="button" id="break-start" onclick="startBreak()">Start break</button></div>
+                    <div class="change_button"><button class="pause_button" type="button" id="break-pause" onclick="pauseBreak()" style="display: none;">Pause break</button></div>
+                    <div class="change_button"><button class="restart_button" type="button" id="break-reset" onclick="resetBreak()">Reset break</button></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--Settings-->
+    <section class="flex-box">
+        <div class="box" id="settings" style="position: absolute; display: none; top: 100px;">
+            <h2 style="text-align: center;">Settings</h2>
+            <h3 style="text-align: center;">Pomodoro Time Settings</h3>
+            <div class="time_settings">
+                <div class="time_box">
+                    <label>Focus</label>
+                    <input type="number" name="pomo_time" id="pomo_time" value="25" min="1" max="99">
+                </div>
+                <div class="time_box">
+                    <label>Break</label>
+                    <input type="number" name="break_time" id="pomo_break" value="5" min="1" max="99">
+                </div>
+                <div class="time_box" style="margin-right: 0px;">
+                    <label>L Break</label>
+                    <input type="number" name="long-Break_time" id="pomo_lbreak" value="10" min="1" max="99">
+                </div>
+            </div>
+            <h3 style="text-align: center;">Alarm</h3>
+                <div class="alarm_settings">
+                    <label>Alarm sound</label>
+                    <select name="sounds" id="sounds">
+                        <option value="iphone">IPhone</option>
+                        <option value="nuclear">Nuclear</option>
+                        <option value="nossa">Nossa</option>
+                        <option value="best">THE BEST</option>
+                    </select>
+                    <button class="play-btn" onclick="playSound()">Play</button>
+                </div>
+                <button type="button" onclick="reset()">Save</button>
+        </div>
+        
+    </section>
+    <div style="text-align: center; margin: 10px;">
+        <a href="javascript:void(0)" onclick="changeColor('light')" style="display: none; color: whitesmoke;" id="light-mode_btn">Light Mode</a>
+        <a href="javascript:void(0)" onclick="changeColor('dark')" id="dark-mode_btn" style="color: black;">Dark Mode</a>
+    </div>
+    <footer><p style="text-align: center; font-family: Arial, Helvetica, sans-serif;" class="text">Made by <a href="https://github.com/hevandrohelio" style="text-decoration: none;" target="_blank">Hevandro</a></p></footer>
+    <script src="flow.js"></script>
+</body>
+</html>
