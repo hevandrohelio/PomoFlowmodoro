@@ -1,0 +1,24 @@
+{
+  "name": "pomoflowmodoro",
+  "version": "1.0.0",
+  "description": "Um relógio de estudos onde você tem acesso a 2 métodos de estudos: Pomodoro e Flowmodoro, onde, no pomodoro, um temporizador será utilizado para o tempo, e no flowmodoro, um cronômetro será utilizado, onde os descanços serão calculados a partir do tempo estudado/trabalhado",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hevandrohelio/PomoFlowmodoro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hevandrohelio/PomoFlowmodoro/issues"
+  },
+  "homepage": "https://github.com/hevandrohelio/PomoFlowmodoro#readme",
+  "dependencies": {
+    "dayjs": "^1.11.19",
+    "micromodal": "^0.6.1"
+  }
+}
