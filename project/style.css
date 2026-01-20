@@ -29,3 +29,7 @@ nav{
     background-color: var(--buttons-transition-color);
     color: var(--text-transition-color);
 }
+.timer{
+    color: var(--text-color);
+    text-align: center;
+}
