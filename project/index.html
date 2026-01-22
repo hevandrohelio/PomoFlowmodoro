@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
 </head>
+
 <body>
     <nav>
         <div class="nav-btn-container">
             <button class="nav-btn">Pomodoro</button>
             <!-- <button class="nav-btn">Flowmodoro</button> -->
-            <button class="nav-btn">Settings</button>
+            <button class="nav-btn" data-micromodal-trigger="settings-modal">Settings</button>
         </div>
     </nav>
     <hr>
@@ -29,6 +32,46 @@
             </div>
         </section>
     </section>
+    <!-- Settings modal -->
+    <div class="micromodal-slide" id="settings-modal" aria-hidden="true">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
+                <header class="modal__header">
+                    <h2 id="settings-modal-title" class="settings-title">Settings</h2>
+                </header>
 
+                <main class="modal__content">
+                    <form action="" class="settings-container">
+                        <div>
+                            <label for="focus-time ">Focus Time (min): </label>
+                            <input class="time-settings-input" type="number" name="focus_time" id="focus_time" min="0">
+                        </div>
+                        <br>
+                        <div>
+                            <label for="break-time">Break Time (min): </label>
+                            <input class="time-settings-input" type="number" name="break_time" id="break_time" min="0">
+                        </div>
+                        <br>
+                        <div>
+                            <label for="long-break-time">Long Break Time (min): </label>
+                            <input class="time-settings-input" type="number" name="long_break_time" id="long_break_time"
+                                min="0">
+                        </div>
+                            <br>
+                        <div>
+                            <label for="theme">App Theme: </label>
+                            <select name="theme" id="theme">
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
+                    </form>
+                    <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+                        Close
+                    </button>
+                </main>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
