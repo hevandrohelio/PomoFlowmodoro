@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro</title>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="script.js"></script>
+    <script type="module" src="micromodal_script.js"></script>
 </head>
 
 <body>
@@ -65,9 +65,14 @@
                             </select>
                         </div>
                     </form>
-                    <button class="modal__close" aria-label="Close modal" data-micromodal-close>
-                        Close
-                    </button>
+                    <div class="modal-buttons">
+                        <button class="modal__close" aria-label="Close modal" data-micromodal-close>
+                            Close
+                        </button>
+                        <button class="save-settings" aria-label="Close modal" data-micromodal-close>
+                            Save
+                        </button>
+                    </div>
                 </main>
             </div>
         </div>
