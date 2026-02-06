@@ -1,3 +1,3 @@
-import MicroModal from 'micromodal/dist/micromodal.es.js';
+import MicroModal from './node_modules/micromodal/dist/micromodal.es.js';
 
 MicroModal.init();

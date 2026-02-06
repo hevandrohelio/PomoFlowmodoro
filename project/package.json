@@ -20,5 +20,8 @@
   "dependencies": {
     "dayjs": "^1.11.19",
     "micromodal": "^0.6.1"
+  },
+  "devDependencies": {
+    "@types/micromodal": "^0.3.5"
   }
 }

@@ -37,8 +37,10 @@ nav {
 .nav-btn:hover,
 .timer-nav-btn:hover,
 .timer-control-btn:hover,
+.timer-control-btn-pause:hover,
 .reset-btn:hover,
-.modal__close:hover, .save-settings {
+.modal__close:hover,
+.save-settings:hover {
     background-color: var(--buttons-transition-color);
     color: var(--text-transition-color);
 }
@@ -63,6 +65,7 @@ nav {
 
 .timer-nav-btn,
 .timer-control-btn,
+.timer-control-btn-pause,
 .modal__close,
 .save-settings {
     width: 100px;

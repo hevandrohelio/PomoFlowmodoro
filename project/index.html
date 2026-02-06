@@ -7,6 +7,7 @@
     <title>Pomodoro</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="micromodal_script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -25,13 +26,16 @@
                 <button class="timer-nav-btn">Break</button>
                 <button class="timer-nav-btn">Long Break</button>
             </div>
-            <h1 class="timer-text">00:00</h1>
+            <h1 class="timer-text" id="timer_text">00:00</h1>
             <div class="timer-control-buttons">
-                <button class="timer-control-btn">Start</button>
-                <button class="reset-btn">↺</button>
+                <button class="timer-control-btn" id="start_btn">Start</button>
+                <button class="timer-control-btn-pause" style="display: none;" id="pause_btn">Pause</button>
+                <button class="reset-btn" id="reset_btn">↺</button>
             </div>
         </section>
     </section>
+
+
     <!-- Settings modal -->
     <div class="micromodal-slide" id="settings-modal" aria-hidden="true">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
@@ -44,20 +48,28 @@
                     <form action="" class="settings-container">
                         <div>
                             <label for="focus-time ">Focus Time (min): </label>
-                            <input class="time-settings-input" type="number" name="focus_time" id="focus_time" min="0">
+                            <input class="time-settings-input" type="number" name="focus_time" id="focus_time" min="0"
+                                max="99" value="25">
                         </div>
                         <br>
                         <div>
                             <label for="break-time">Break Time (min): </label>
-                            <input class="time-settings-input" type="number" name="break_time" id="break_time" min="0">
+                            <input class="time-settings-input" type="number" name="break_time" id="break_time" min="0"
+                                max="99" value="5">
                         </div>
                         <br>
                         <div>
                             <label for="long-break-time">Long Break Time (min): </label>
                             <input class="time-settings-input" type="number" name="long_break_time" id="long_break_time"
-                                min="0">
+                                min="0" max="99" value="10">
                         </div>
-                            <br>
+                        <br>
+                        <div>
+                            <label for="long_break_interval">Long Break Interval: </label>
+                            <input class="time-settings-input" type="number" name="long_break_interval"
+                                id="long_break_interval" min="0" max="99" value="2">
+                        </div>
+                        <br>
                         <div>
                             <label for="theme">App Theme: </label>
                             <select name="theme" id="theme">
