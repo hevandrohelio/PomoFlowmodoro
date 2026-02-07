@@ -22,15 +22,16 @@
     <section class="timer-container">
         <section class="timer">
             <div class="timer-nav-buttons">
-                <button class="timer-nav-btn">Focus</button>
-                <button class="timer-nav-btn">Break</button>
-                <button class="timer-nav-btn">Long Break</button>
+                <button class="timer-nav-btn" onclick="changeMode('focus')">Focus</button>
+                <button class="timer-nav-btn" onclick="changeMode('break')">Break</button>
+                <button class="timer-nav-btn" onclick="changeMode('long_break')">Long Break</button>
             </div>
             <h1 class="timer-text" id="timer_text">00:00</h1>
             <div class="timer-control-buttons">
-                <button class="timer-control-btn" id="start_btn">Start</button>
-                <button class="timer-control-btn-pause" style="display: none;" id="pause_btn">Pause</button>
-                <button class="reset-btn" id="reset_btn">↺</button>
+                <button class="timer-control-btn" id="start_btn" onclick="start()">Start</button>
+                <button class="timer-control-btn-pause" style="display: none;" id="pause_btn"
+                    onclick="pause()">Pause</button>
+                <button class="reset-btn" id="reset_btn" onclick="reset()">↺</button>
             </div>
         </section>
     </section>
