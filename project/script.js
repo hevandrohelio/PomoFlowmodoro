@@ -19,17 +19,16 @@ function minutesToSeconds(t) {
     return t * 60
 }
 
-function displayTimer(time) {
-    if (time < 600 && time > 10) {
-        (time % 60 == 0) ? timerText.innerHTML = `0${Math.floor(time / 60)}:0${time % 60}` : timerText.innerHTML = `0${Math.floor(time / 60)}:${time % 60}`;
-    }
-    else if (time < 10) {
-        (time % 60 == 0) ? timerText.innerHTML = `0${Math.floor(time / 60)}:0${time % 60}` : timerText.innerHTML = `0${Math.floor(time / 60)}:0${time % 60}`;
-    }
-    else {
-        (time % 60 == 0) ? timerText.innerHTML = `${Math.floor(time / 60)}:0${time % 60}` : timerText.innerHTML = `0${Math.floor(time / 60)}:${time % 60}`;
-    }
+function displayTimer(timeInSeconds) {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = timeInSeconds % 60;
+
+    const formattedMinutes = String(minutes).padStart(2, "0");
+    const formattedSeconds = String(seconds).padStart(2, "0");
+
+    timerText.innerHTML = `${formattedMinutes}:${formattedSeconds}`;
 }
+
 
 // modes
 function changeMode(mode) {
@@ -57,9 +56,10 @@ function start() {
     pomodoroPauseBtn.style.display = "inline";
     isRunning = true;
     clock = setInterval(() => {
-        if (timer === 0) {
+        if (timer<=1) {
             clearInterval(clock);
             isRunning = false;
+            
         }
         timer--;
         displayTimer(timer);
