@@ -19,6 +19,21 @@ function minutesToSeconds(t) {
     return t * 60
 }
 
+function loadSettings() {
+    pomodoroFocusTime = document.getElementById("focus_time").value;
+    pomodoroBreakTime = document.getElementById("break_time").value;
+    pomodoroLongBreakTime = document.getElementById("long_break_time").value;
+}
+
+window.addEventListener("settings-updated", () => {
+    loadSettings();
+
+    if (!isRunning) {
+        changeMode(timerMode);
+    }
+});
+
+
 function displayTimer(timeInSeconds) {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
