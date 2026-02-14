@@ -15,10 +15,12 @@ document.getElementById('interval_alert').innerHTML = `Timers to long break: ${p
 let pomodoroBreakTime = document.getElementById("break_time").value;
 let pomodoroLongBreakTime = document.getElementById("long_break_time").value;
 
-
+const alarmSound = new Audio("song/alarm.mp3")
 
 let timer = minutesToSeconds(pomodoroFocusTime);
 let clock = null;
+
+changeMode('focus');
 
 displayTimer(timer)
 
@@ -59,16 +61,26 @@ function changeMode(mode) {
     pomodoroStartBtn.style.display = "inline";
     pomodoroPauseBtn.style.display = "none";
     if (mode === 'focus') {
+        document.getElementById('focus_btn').style = 'box-shadow: inset 0 -8px 6px -6px white;';
+        document.getElementById('break_btn').style = 'box-shadow: none;';
+        document.getElementById('long_break_btn').style = 'box-shadow: none;';
         timerMode = 'focus';
         timer = minutesToSeconds(pomodoroFocusTime);
         displayTimer(timer);
     }
     if (mode === 'break') {
+        document.getElementById('break_btn').style = 'box-shadow: inset 0 -8px 6px -6px white;';
+        document.getElementById('focus_btn').style = 'box-shadow: none;';
+        document.getElementById('long_break_btn').style = 'box-shadow: none;';
+        timerMode = 'focus';
         timerMode = 'break';
         timer = minutesToSeconds(pomodoroBreakTime);
         displayTimer(timer);
     }
     if (mode === 'long_break') {
+        document.getElementById('long_break_btn').style = 'box-shadow: inset 0 -8px 6px -6px white;';
+        document.getElementById('focus_btn').style = 'box-shadow: none;';
+        document.getElementById('break_btn').style = 'box-shadow: none;';
         timerMode = 'long_break';
         timer = minutesToSeconds(pomodoroLongBreakTime);
         displayTimer(timer);
@@ -83,21 +95,22 @@ function start() {
     pomodoroPauseBtn.style.display = "inline";
     isRunning = true;
     clock = setInterval(() => {
-
         if (timer <= 0) {
+            alarmSound.currentTime = 0;
+            alarmSound.play();
             clearInterval(clock);
             isRunning = false;
 
-            if (timerMode ==='focus'){
+            if (timerMode === 'focus') {
                 pomodoroLongBreakInterval--;
-                if (pomodoroLongBreakInterval!==0) {
+                if (pomodoroLongBreakInterval !== 0) {
                     changeMode('break');
                 }
-                else{
+                else {
                     changeMode('long_break');
                     loadSettings();
                 }
-            } else{
+            } else {
                 changeMode('focus');
             }
 

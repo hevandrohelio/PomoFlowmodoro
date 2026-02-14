@@ -22,9 +22,9 @@
     <section class="timer-container">
         <section class="timer">
             <div class="timer-nav-buttons">
-                <button class="timer-nav-btn" onclick="changeMode('focus')">Focus</button>
-                <button class="timer-nav-btn" onclick="changeMode('break')">Break</button>
-                <button class="timer-nav-btn" onclick="changeMode('long_break')">Long Break</button>
+                <button class="timer-nav-btn" id="focus_btn" onclick="changeMode('focus')">Focus</button>
+                <button class="timer-nav-btn" id="break_btn" onclick="changeMode('break')">Break</button>
+                <button class="timer-nav-btn" id="long_break_btn"onclick="changeMode('long_break')">Long Break</button>
             </div>
             <h1 class="timer-text" id="timer_text">00:00</h1>
             <p class="interval_alert" id="interval_alert">Timers to long break: </p>
